@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import App from '../App.jsx';
+import ReduxProvider from '../components/ReduxProvider.jsx';
 import ErrorPage from '../components/ErrorPage.jsx';
 import Profile from '../components/Profile.jsx';
 import About from '../components/About.jsx';
@@ -12,7 +12,7 @@ import { ABOUT, HOME, PROFILE } from './routes.js';
 export const router = createBrowserRouter([
   {
     path: HOME,
-    element: <App />,
+    element: <ReduxProvider />,
     errorElement: <ErrorPage />,
     children: [
       {
