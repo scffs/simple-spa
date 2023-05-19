@@ -11,7 +11,7 @@
 - Redux-saga
 - Git
 
-### Task
+### Task Description
 - Список постов (главная страница)
   - Тест
   - Автор
