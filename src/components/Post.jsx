@@ -8,6 +8,8 @@ import { fetchUserRequest } from '../slices/userSlice';
 
 import Avatar from '../assets/ava.png';
 
+import { BASE_URL } from '../routes/routes.js';
+
 const Post = ({ post }) => {
   const dispatch = useDispatch();
 
@@ -17,7 +19,7 @@ const Post = ({ post }) => {
 
   return (
     <Card style={{ width: '15rem' }} className="h-100">
-      <Link to={`/profile/${post.userId}`} onClick={handleUserClick}>
+      <Link to={`/${BASE_URL}/profile/${post.userId}`} onClick={handleUserClick}>
         <Card.Img variant="top" src={Avatar} />
       </Link>
       <Card.Body>

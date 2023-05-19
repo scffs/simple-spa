@@ -14,7 +14,9 @@ import Avatar from '../assets/ava.png';
 
 const Profile = () => {
   const { userId } = useParams();
+
   const dispatch = useDispatch();
+
   const user = useSelector((state) => state.user.user);
   const loading = useSelector((state) => state.user.loading);
   const error = useSelector((state) => state.user.error);
