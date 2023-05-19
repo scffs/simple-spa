@@ -11,6 +11,7 @@ import { fetchUserRequest } from '../slices/userSlice';
 import { fetchPostsSuccess } from '../slices/postsSlice.js';
 
 import Avatar from '../assets/ava.png';
+import { BASE_URL } from '../routes/routes.js';
 
 const Profile = () => {
   const { userId } = useParams();
@@ -25,7 +26,7 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/');
+    navigate(`/${BASE_URL}`);
   }
 
 
