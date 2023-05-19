@@ -12,14 +12,14 @@ const Header = () => {
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-    
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top" className='p-2 position-relative'>
       <Navbar.Toggle aria-controls="navbar-nav" onClick={handleMenuToggle} />
       <Navbar.Collapse id="navbar-nav" className={isMenuOpen ? 'show' : ''}>
         <Nav className="mr-auto">
-          <Link to={HOME}>Список постов</Link>
-          <Link to={ABOUT}>Список постов</Link>
+          <Link to={HOME} className="nav-link">Список постов</Link>
+          <Link to={ABOUT} className="nav-link">Обо мне</Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
