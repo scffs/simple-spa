@@ -9,12 +9,18 @@ import Post from './Post';
 
 const Posts = () => {
   const dispatch = useDispatch();
+
   const posts = useSelector((state) => state.posts.posts);
   const isLoading = useSelector((state) => state.posts.loading);
   const isError = useSelector((state) => state.posts.error);
 
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(posts.length / postsPerPage);
 
   useEffect(() => {
     dispatch(fetchPostsRequest());
@@ -37,11 +43,6 @@ const Posts = () => {
       </Container>
     );
   }
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-  const totalPages = Math.ceil(posts.length / postsPerPage);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
