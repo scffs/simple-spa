@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { fetchUserRequest } from '../slices/userSlice';
 
 import { Card } from 'react-bootstrap';
+
+import { fetchUserRequest } from '../slices/userSlice';
 
 import Avatar from '../assets/ava.png';
 

@@ -1,9 +1,11 @@
 import React from 'react';
 import { useNavigate, useRouteError } from 'react-router-dom';
+
 import { Alert, Button, Container } from 'react-bootstrap';
 
 const ErrorPage = () => {
   const error = useRouteError();
+
   console.error(error);
 
   const navigate = useNavigate();

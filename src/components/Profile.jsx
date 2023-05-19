@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchUserRequest } from '../slices/userSlice';
+import { Card } from 'react-bootstrap';
 import Loading from './Loading.jsx';
 import ErrorAlert from './ErrorAlert.jsx';
-import { Card } from 'react-bootstrap';
+
+import { fetchUserRequest } from '../slices/userSlice';
+
 import Avatar from '../assets/ava.png';
 
 const Profile = () => {
