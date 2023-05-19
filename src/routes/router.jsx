@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import ReduxProvider from '../components/ReduxProvider.jsx';
-import ErrorPage from '../components/ErrorPage.jsx';
-import Profile from '../components/Profile.jsx';
-import About from '../components/About.jsx';
-import Posts from '../components/Posts.jsx';
+const ReduxProvider = lazy(() => import('../components/ReduxProvider.jsx'));
+const ErrorPage = lazy(() => import('../components/ErrorPage.jsx'));
+const Profile = lazy(() => import('../components/Profile.jsx'));
+const About = lazy(() => import('../components/About.jsx'));
+const Posts = lazy(() => import('../components/Posts.jsx'));
 
 import { ABOUT, HOME, PROFILE } from './routes.js';
 
