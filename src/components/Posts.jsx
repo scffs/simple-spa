@@ -3,16 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchPostsRequest } from '../slices/postsSlice';
 
-import { Container, Row, Col, Spinner, Alert, Pagination } from 'react-bootstrap';
+import { Row, Col, Pagination } from 'react-bootstrap';
 
 import Post from './Post';
+import ErrorAlert from './ErrorAlert.jsx';
+import Loading from './Loading.jsx';
 
 const Posts = () => {
   const dispatch = useDispatch();
 
   const posts = useSelector((state) => state.posts.posts);
   const isLoading = useSelector((state) => state.posts.loading);
-  const isError = useSelector((state) => state.posts.error);
+  const error = useSelector((state) => state.posts.error);
 
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
@@ -27,21 +29,11 @@ const Posts = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return (
-      <Container className="mt-5 d-flex justify-content-center">
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      </Container>
-    );
+    return <Loading />
   }
 
-  if (isError) {
-    return (
-      <Container className="mt-5">
-        <Alert variant="danger">Error: {isError}</Alert>
-      </Container>
-    );
+  if (error) {
+    return <ErrorAlert error={error} />
   }
 
   const paginate = (pageNumber) => {
@@ -49,7 +41,7 @@ const Posts = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <>
       <h2>Posts</h2>
       <Row className="justify-content-center gap-4">
         {currentPosts?.map((post) => (
@@ -71,7 +63,7 @@ const Posts = () => {
           ))}
         </Pagination>
       </div>
-    </Container>
+    </>
   );
 };
 

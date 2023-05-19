@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col, Button } from 'react-bootstrap';
 
 import Loading from './Loading.jsx';
 import ErrorAlert from './ErrorAlert.jsx';
@@ -19,6 +19,13 @@ const Profile = () => {
   const loading = useSelector((state) => state.user.loading);
   const error = useSelector((state) => state.user.error);
   const posts = useSelector((state) => state.posts.posts);
+
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/');
+  }
+
 
   useEffect(() => {
     dispatch(fetchUserRequest(userId));
@@ -49,7 +56,7 @@ const Profile = () => {
   const userPosts = posts.filter((post) => post.userId === parseInt(userId));
 
   return (
-    <Container className="mt-4">
+    <>
       <Card style={{ width: '18rem' }} className="mb-4">
         {user && (
           <div>
@@ -61,6 +68,7 @@ const Profile = () => {
           </div>
         )}
       </Card>
+      <Button onClick={handleButtonClick}>Назад</Button>
       <Row>
         {userPosts.map((post) => (
           <Col key={post.id} xs={12} md={6} lg={4}>
@@ -68,7 +76,7 @@ const Profile = () => {
           </Col>
         ))}
       </Row>
-    </Container>
+    </>
   );
 };
 

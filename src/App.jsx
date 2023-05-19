@@ -9,7 +9,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <Container>
+      <Container className='mt-5'>
         <Outlet />
       </Container>
     </>
